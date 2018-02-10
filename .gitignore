@@ -6,17 +6,4 @@
 /node_modules
 .idea
 *.iml
-out
-gen
-Будет удалено .idea/React-weather-forecast.iml
-Будет удалено .idea/inspectionProfiles/
-Будет удалено .idea/misc.xml
-Будет удалено .idea/modules.xml
-Будет удалено .idea/workspace.xml
-Будет удалено README.md
-Будет удалено node_modules/
-Будет удалено package-lock.json
-Будет удалено package.json
-Будет удалено public/favicon.ico
-Будет удалено public/index.html
-Будет удалено public/manifest.json
+
