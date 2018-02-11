@@ -42,7 +42,7 @@ class Weather extends React.Component {
             <div>
 
                 <header>
-                    <a className="header-title">UberMeteo</a>
+                    <a className="header-title">UnterMeteo</a>
                     <ul className="header-nav">
                         <li className="header-nav-item"><a href="">today</a></li>
                         <li className="header-nav-item"><a href="">5 days</a></li>
