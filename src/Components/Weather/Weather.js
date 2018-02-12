@@ -19,9 +19,9 @@ let windDirection = (deg) => {
 
 };
 
+let weatherFormat = ["Current day", "5 days", "16 days"];
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID =  "a005082060a510ea98358cf7771f530f";
-let weatherFormat = ["Current day" , "5 days" , "16 days"];
 
 class Weather extends React.Component {
     constructor(props){
@@ -51,7 +51,7 @@ class Weather extends React.Component {
 
         let url = API_URL + "?q=" + this.state.inputValue + "&appid=" + APP_ID + "&cnt=" + quantity;
         fetch(url)
-            .then( (response) => {
+            .then((response) => {
                 return response.json();
             })
             .then((data) => {
@@ -95,7 +95,6 @@ class Weather extends React.Component {
                             <option  key={i} onClick={() => this.setState({currentFormat : c})}>{c}</option>
                         )}
                     </select>
-
                     <button className="search-btn" onClick={() => this.getWeather()}>CLick</button>
                 </div>
                 <main>
@@ -114,10 +113,8 @@ class Weather extends React.Component {
                         visibility = {this.state.visibility}
                         clouds = {this.state.clouds}
                         imgWind = {wind}
-                        imgCloud = {cloud}
-                    />
-
-               </main>
+                        imgCloud = {cloud}/>
+                </main>
             </div>
         )
     }
