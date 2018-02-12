@@ -6,57 +6,7 @@ body {
   body a {
     text-decoration: none; }
 
-header {
-  padding: 7px 0;
-  display: flex;
-  width: 100%;
-  background-color: #7F706F; }
-  header .header-title {
-    color: #7F4A49;
-    font-size: 35px;
-    font-weight: bold;
-    padding: _;
-    margin: 15px 3% 15px 10%; }
-  header .header-nav {
-    display: flex;
-    flex-wrap: nowrap; }
-    header .header-nav .header-nav-item {
-      padding: 0 60px;
-      position: relative;
-      top: 6.5px;
-      left: _; }
-      header .header-nav .header-nav-item a {
-        color: #4C4343;
-        font-size: 25px;
-        font-weight: bold;
-        padding: _;
-        text-transform: uppercase; }
-  header .search-form {
-    margin-left: 7%;
-    height: 20px; }
-    header .search-form input {
-      color: black;
-      font-size: 17px;
-      font-weight: bold;
-      padding: 4px 2px;
-      background-color: rgba(76, 67, 67, 0.1);
-      text-transform: uppercase;
-      border: 3px solid #4C4343;
-      position: relative;
-      top: 20px;
-      left: _; }
-  header .search-btn {
-    padding: 0;
-    margin: 0;
-    background-color: rgba(76, 67, 67, 0.1);
-    width: 20px;
-    height: 20px;
-    position: relative;
-    top: 25px;
-    left: -30px;
-    border: none; }
-    header .search-btn img {
-      padding: 0;
-      margin: 0; }
+.Weather {
+  display: flex; }
 
 /*# sourceMappingURL=Weather.css.map */

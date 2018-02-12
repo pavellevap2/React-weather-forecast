@@ -1,20 +1,4 @@
-$grey : #7F706F;
-$pink : #7F4A49;
-$black : black;
-$darkgrey : #4C4343;
-$m15 : 15px;
-
-@mixin text-props($color,$font-size,$font-weight,$padding){
-  color : $color;
-  font-size: $font-size;
-  font-weight: $font-weight;
-  padding: $padding;
-}
-@mixin position($position,$top,$left){
-  position: $position;
-  top : $top;
-  left: $left;
-}
+@import "../Sidebar/Sidebar";
 
 body{
   margin: 0;
@@ -26,50 +10,7 @@ body{
       text-decoration: none;
     }
 }
-
-header{
-  padding: 7px 0;
+.Weather{
   display: flex;
-  width: 100%;
-  background-color: $grey;
-    .header-title{
-      @include text-props($pink,35px,bold,_);
-      margin: $m15 3% $m15 10%;
-    }
-  .header-nav{
-    display: flex;
-    flex-wrap: nowrap;
-      .header-nav-item{
-        padding: 0 60px;
-        @include position(relative,6.5px,_);
-          a{
-            @include text-props($darkgrey,25px,bold,_);
-            text-transform: uppercase;
-          }
-      }
-  }
-  .search-form{
-    margin-left: 7%;
-    height: 20px;
-      input{
-        @include text-props($black,17px,bold,4px 2px);
-        background-color: rgba(76,67,67,0.1);
-        text-transform: uppercase;
-        border :3px solid $darkgrey;
-        @include position(relative,20px,_);
-      }
-  }
-  .search-btn{
-    padding: 0;
-    margin: 0;
-    background-color: rgba(76,67,67,0.1) ;
-    width: 20px;
-    height: 20px;
-    @include position(relative,25px,-30px);
-    border:none;
-      img{
-        padding: 0;
-        margin: 0;
-      }
-  }
 }
+
