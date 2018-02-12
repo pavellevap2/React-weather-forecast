@@ -8,5 +8,8 @@ body {
 
 .Weather {
   display: flex; }
+  .Weather .Sidebar {
+    display: flex;
+    flex-flow: column wrap; }
 
 /*# sourceMappingURL=Weather.css.map */
