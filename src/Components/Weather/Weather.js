@@ -5,21 +5,6 @@ import wind from "../../assets/images/wind.png";
 import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 
-let kelvinToCelsius = (temp) => {
-    return  parseInt(temp - 273.15);
-};
-
-let windDirection = (deg) => {
-    return ( (deg >= 348 && deg <=360) ||(deg >=0 && deg <= 11) ) ? "North" : (deg > 11 && deg <=33) ? "NNE"
-            : (deg > 33 &&  deg<=56 ) ? "NE " : (deg > 56 && deg <= 78) ? "ENE" : (deg > 78 && deg <= 101) ? "East"
-            : (deg > 101 && deg <= 123) ? "ESE" : (deg > 123 && deg <= 146) ? "SE" : (deg > 146 && deg <= 168) ? "ENE"
-                : (deg > 168 && deg <= 191) ? "South" : (deg > 191 && deg <= 213) ? "SSW"
-                    : (deg > 213 && deg <= 236) ? "WSW" : (deg > 236 && deg <= 258) ? "WSW"
-                        : (deg > 258 && deg <= 281) ? "West" : (deg > 281 && deg <= 303) ? "WNW"
-                            : (deg > 303 && deg <= 326) ? "NW" : (deg > 326 && deg <= 348) ? "NNW" : "none"
-
-};
-
 let weatherFormat = ["Current day", "5 days", "16 days"];
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID =  "a005082060a510ea98358cf7771f530f";
@@ -30,7 +15,7 @@ class Weather extends React.Component {
         this.state = {
             inputValue : "",
             currentFormat : "",
-            location : "" ,
+            city : "" ,
             countryOfCity:"",
             temperature : "",
             maxTemperature:"",
@@ -41,7 +26,7 @@ class Weather extends React.Component {
             windDeg : "",
             weatherIcon : "",
             description : "",
-            visibility : "",
+            seaLevel : "",
             clouds : "",
         };
     }
@@ -59,17 +44,17 @@ class Weather extends React.Component {
                 let day = data.list[0];
 
                 this.setState({
-                    location : data.name,
-                    countryOfCity : data.city.coord.countryOfCity,
+                    city : data.city.name,
+                    countryOfCity : data.city.country,
                     description : day.weather[0].description,
                     temperature : day.main.temp,
                     maxTemperature : day.main.temp_max,
                     minTemperature : day.main.temp_min,
                     pressure : day.main.pressure,
+                    seaLevel : day.main.sea_level,
                     humidity : day.main.humidity,
-                    wind : day.wind.speed,
+                    windSpeed : day.wind.speed,
                     windDeg : day.wind.deg,
-                    visibility : day.visibility,
                     clouds: day.clouds.all,
                     weatherIcon : "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png",
                 })
@@ -80,37 +65,24 @@ class Weather extends React.Component {
     };
 
     render(){
-
         return(
             <div className="Weather">
                 <Sidebar
                 onChange={(e) => this.setState({inputValue : e.target.value})}
                 inputValue={this.state.inputValue}
                 currentFormat = {this.state.currentFormat}
-                makeSelect = {weatherFormat.map((c,i) =>
+                makeSelect = {weatherFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
                         {c}
                     </option>
                 )}
-                onClick={() => this.getWeather()}
-                />
+                onClick={() => this.getWeather()}/>
                 <main>
                     <CurrentWeather
-                        location = {this.state.location}
-                        country = {this.state.countryOfCity}
-                        decription = {this.state.description}
-                        weatherIcon = {this.state.weatherIcon}
-                        temperature = {kelvinToCelsius(this.state.temperature)}
-                        maxTemperature = {kelvinToCelsius(this.state.maxTemperature)}
-                        minTemperature = {kelvinToCelsius(this.state.minTemperature)}
-                        pressure = {this.state.pressure}
-                        humidity = {this.state.humidity}
-                        windSpeed = {this.state.windSpeed}
-                        windDeg = {windDirection(this.state.windDeg)}
-                        visibility = {this.state.visibility}
-                        clouds = {this.state.clouds}
+                        weather = {this.state}
                         imgWind = {wind}
                         imgCloud = {cloud}/>
+
                 </main>
             </div>
         )

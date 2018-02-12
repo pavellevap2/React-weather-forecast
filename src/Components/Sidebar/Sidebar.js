@@ -1,19 +1,19 @@
 import React from "react";
+import "./Sidebar.css"
 
 function Sidebar(props) {
     return(
         <div className="Sidebar">
-            <a className="header-title">UnterMeteo</a>
-            <input type="text" className="input-search"
-                   placeholder={"Search"}
-                   onChange={props.onChange}
-                   value={props.inputValue}/>
-            <span>Select format</span>
-            <select value={props.currentFormat}>
+            <a className="Sidebar-title">MyForecast</a>
+            <p className="Sidebar-text">Select format</p>
+            <select className="Sidebar-select" value={props.currentFormat}>
                 <option value="Select format">....</option>
                 {props.makeSelect}
             </select>
-            <button className="search-btn" onClick={props.onClick}>CLick</button>
+            <input type="text" className="Sidebar-input" placeholder="Enter city"
+                   onChange={props.onChange}
+                   value={props.inputValue}/>
+            <button className="Sidebar-search_btn" onClick={props.onClick}>Search</button>
         </div>
     )
 }

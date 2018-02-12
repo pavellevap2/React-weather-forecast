@@ -1,0 +1,61 @@
+@import "../Sidebar/Sidebar";
+body{
+  background-color: $mainColor;
+}
+.Current {
+  margin-left: 18%;
+  .Current-title {
+    text-align: center;
+    @include text-props($darkBlue, 50px, bolder, 5px);
+  }
+  .Current-info {
+    margin-top: -15px;
+    margin-bottom: 10%;
+    text-align: center;
+    .Current-info-location_title {
+      @include text-props($grey, 40px, bold, _);
+    }
+    .Current-info-description {
+      @include text-props($lightGrey, 30px, bold, _);
+      text-shadow: 1px 1px 1px black;
+      margin-top: -30px;
+    }
+  }
+  .Current-weather {
+    text-align: center;
+    position: relative;
+    left: -15%;
+    display: flex;
+    .weather-block {
+      white-space: nowrap;
+      .temp-title {
+       @include text-props($darkBlue, 35px, bold, _);
+        font-style: italic;
+      }
+      .temp-item {
+        padding: 5px 0;
+        @include text-props($grey,25px,bold,_);
+        .temp-item-text{
+          @include text-props($darkBlue,23px,500,_);
+        }
+        .temp-item-img {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 15px;
+        }
+        .flag{
+          position: relative;
+          left: 10%;
+        }
+      }
+    }
+    .m-weather{
+      margin-left: 18%;
+      margin-right: 18%;
+      white-space: nowrap;
+
+    }
+  }
+}
+
+

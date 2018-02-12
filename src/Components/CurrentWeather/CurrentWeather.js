@@ -1,46 +1,70 @@
 import React from "react"
 
+let kelvinToCelsius = (temp) => {
+    return  parseInt(temp - 273.15);
+};
+
+let windDirection = (deg) => {
+    return ( (deg >= 348 && deg <=360) || (deg >=0 && deg <= 11) ) ? "North" : (deg > 11 && deg <=33) ? "NNE"
+        : (deg > 33 &&  deg<=56 ) ? "NE " : (deg > 56 && deg <= 78) ? "ENE" : (deg > 78 && deg <= 101) ? "East"
+            : (deg > 101 && deg <= 123) ? "ESE" : (deg > 123 && deg <= 146) ? "SE" : (deg > 146 && deg <= 168) ? "ENE"
+                : (deg > 168 && deg <= 191) ? "South" : (deg > 191 && deg <= 213) ? "SSW"
+                    : (deg > 213 && deg <= 236) ? "WSW" : (deg > 236 && deg <= 258) ? "WSW"
+                        : (deg > 258 && deg <= 281) ? "West" : (deg > 281 && deg <= 303) ? "WNW"
+                            : (deg > 303 && deg <= 326) ? "NW" : (deg > 326 && deg <= 348) ? "NNW" : "none"
+
+};
 function CurrentWeather(props) {
     return (
         <div className="Current">
-            <h1 className="Current-title">Current weather</h1>
-            <div className="info">
-                <h2 className="country-title">{props.location} <span>{props.countryOfCity}</span></h2>
-                <p className="weather-decription">{props.description}</p>
+            <h2 className="Current-title">Current weather</h2>
+            <div className="Current-info">
+                <h2 className="Current-info-location_title">{props.weather.city}
+                    <span className="Current-info-city"> {props.weather.countryOfCity}</span>
+                </h2>
+                <p className="Current-info-description">({props.weather.description})</p>
             </div>
 
-            <div className="container-weather">
-                <div className="temp">
-                    <p className="temp-title">Temperature</p>
-                    <ul>
-                        <li className="temp-item"><img src={props.weatherIcon} alt="weather icon"/></li>
-                        <li className="temp-item">Temperature : {props.temperature}  °</li>
-                        <li className="temp-item">Max temperature :{props.maxTemperature} °
+            <div className="Current-weather">
+                    <ul className="weather-block">
+                        <li><p className="temp-title">Temperature</p></li>
+                        <li className="temp-item"><img src={props.weather.weatherIcon} className="temp-item-img" alt="weather icon"/></li>
+                        <li className="temp-item"><span className="temp-item-text">Temperature :</span>
+                            {kelvinToCelsius(props.weather.temperature)}  °
                         </li>
-                        <li className="temp-item">Min temperature : {props.minTemperature} °
+                        <li className="temp-item"><span className="temp-item-text">Max temperature : </span>
+                            {kelvinToCelsius(props.weather.maxTemperature)} °
                         </li>
-                        <li className="temp-item"> Atmosphere pressure :{props.pressure} mm. gt. art.</li>
-                        <li className="temp-item">Humidity : {props.humidity}</li>
+                        <li className="temp-item"><span className="temp-item-text">Min temperature : </span>
+                            {kelvinToCelsius(props.weather.minTemperature)} °
+                        </li>
+                        <li className="temp-item"><span className="temp-item-text">Humidity : </span>
+                            {props.weather.humidity}</li>
                     </ul>
-                </div>
-                <div className="wind">
-                    <p className="temp-title">Wind</p>
-                    <ul>
-                        <li className="temp-item"><img src={props.imgWind} alt="wind"/></li>
-                        <li className="wind-item">Wind speed : {props.windSpeed} mps</li>
-                        <li className="wind-item">Wind direction : {props.windDeg}</li>
+
+                    <ul className="weather-block m-weather">
+                        <li><p className="temp-title">Wind</p></li>
+                        <li className="temp-item"><img src={props.imgWind} className="temp-item-img flag" alt="wind"/></li>
+                        <li className="temp-item"><span className="temp-item-text">Wind speed : </span>
+                            {props.weather.windSpeed} mps</li>
+                        <li className="temp-item"><span className="temp-item-text">Wind direction : </span>
+                            {windDirection(props.weather.windDeg)}</li>
                     </ul>
-                </div>
-                <div className="visiblity">
-                    <p className="temp-title">Visibility</p>
-                    <ul>
-                        <li className="temp-item"><img src={props.imgCloud} alt="cloud"/></li>
-                        <li className="visibility-item">Visibility : {props.visibility} MOR</li>
-                        <li className="visibility-item">Clouds : {props.clouds} %</li>
+
+                    <ul className="weather-block">
+                        <li><p className="temp-title">Other</p></li>
+                        <li className="temp-item"><img src={props.imgCloud} className="temp-item-img" alt="cloud"/></li>
+                        <li className="temp-item"><span className="temp-item-text">Pressure : </span>
+                            {props.weather.pressure} </li>
+                        <li className="temp-item"><span className="temp-item-text">Clouds : </span>
+                            {props.weather.clouds} %</li>
+                        <li className="temp-item"><span className="temp-item-text">Sea level : </span>
+                            {props.weather.seaLevel} m</li>
                     </ul>
-                </div>
             </div>
+
         </div>
     )
+
 }
 export default CurrentWeather;
