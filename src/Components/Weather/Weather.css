@@ -158,4 +158,12 @@ body {
 .Weather {
   display: flex; }
 
+.Empty-title {
+  margin-left: 40%;
+  margin-top: 25%;
+  color: #556D7F;
+  font-size: 50px;
+  font-weight: bold;
+  padding: _; }
+
 /*# sourceMappingURL=Weather.css.map */

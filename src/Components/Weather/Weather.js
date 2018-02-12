@@ -9,6 +9,14 @@ let weatherFormat = ["Current day", "5 days", "16 days"];
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID =  "a005082060a510ea98358cf7771f530f";
 
+function EmptyPage() {
+    return(
+        <div>
+            <h2 className="Empty-title">Choose forecast format</h2>
+        </div>
+    )
+}
+
 class Weather extends React.Component {
     constructor(props){
         super(props);
@@ -77,12 +85,13 @@ class Weather extends React.Component {
                     </option>
                 )}
                 onClick={() => this.getWeather()}/>
-                <main>
+                <main>{this.state.currentFormat=="Current day" ?
                     <CurrentWeather
-                        weather = {this.state}
-                        imgWind = {wind}
-                        imgCloud = {cloud}/>
-
+                        weather={this.state}
+                        imgWind={wind}
+                        imgCloud={cloud}/> :
+                    <EmptyPage/>
+                }
                 </main>
             </div>
         )
