@@ -88,7 +88,9 @@ class Weather extends React.Component {
                 inputValue={this.state.inputValue}
                 currentFormat = {this.state.currentFormat}
                 makeSelect = {weatherFormat.map((c,i) =>
-                    <option  key={i} onClick={() => this.setState({currentFormat : c})}>{c}</option>
+                    <option key={i} onClick={() => this.setState({currentFormat : c})}>
+                        {c}
+                    </option>
                 )}
                 onClick={() => this.getWeather()}
                 />
