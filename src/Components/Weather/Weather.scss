@@ -1,21 +1,4 @@
 @import "../Sidebar/Sidebar";
-$grey : #7F706F;
-$pink : #7F4A49;
-$black : black;
-$darkgrey : #4C4343;
-$m15 : 15px;
-
-@mixin text-props($color,$font-size,$font-weight,$padding){
-  color : $color;
-  font-size: $font-size;
-  font-weight: $font-weight;
-  padding: $padding;
-}
-@mixin position($position,$top,$left){
-  position: $position;
-  top : $top;
-  left: $left;
-}
 
 body{
   margin: 0;
@@ -29,14 +12,5 @@ body{
 }
 .Weather{
   display: flex;
-    .Sidebar{
-      display: flex;
-      flex-flow: column wrap;
-    }
-  main{
-    .Current{
-
-    }
-  }
 }
 

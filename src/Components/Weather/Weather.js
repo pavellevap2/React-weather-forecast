@@ -2,7 +2,8 @@ import React from "react";
 import "./Weather.css";
 import cloud from "../../assets/images/cloud.png";
 import wind from "../../assets/images/wind.png";
-import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather"
+import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 
 let kelvinToCelsius = (temp) => {
     return  parseInt(temp - 273.15);
@@ -82,21 +83,15 @@ class Weather extends React.Component {
 
         return(
             <div className="Weather">
-                <div className="Sidebar">
-                    <a className="header-title">UnterMeteo</a>
-                    <input type="text" className="input-search"
-                           placeholder={"Search"}
-                           onChange={(e) => this.setState({inputValue : e.target.value})}
-                           value={this.state.inputValue}/>
-                    <span>Select format</span>
-                    <select value={this.state.currentFormat}>
-                        <option value="Select format">....</option>
-                        {weatherFormat.map((c,i) =>
-                            <option  key={i} onClick={() => this.setState({currentFormat : c})}>{c}</option>
-                        )}
-                    </select>
-                    <button className="search-btn" onClick={() => this.getWeather()}>CLick</button>
-                </div>
+                <Sidebar
+                onChange={(e) => this.setState({inputValue : e.target.value})}
+                inputValue={this.state.inputValue}
+                currentFormat = {this.state.currentFormat}
+                makeSelect = {weatherFormat.map((c,i) =>
+                    <option  key={i} onClick={() => this.setState({currentFormat : c})}>{c}</option>
+                )}
+                onClick={() => this.getWeather()}
+                />
                 <main>
                     <CurrentWeather
                         location = {this.state.location}
