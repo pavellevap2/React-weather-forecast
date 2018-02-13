@@ -51,8 +51,7 @@ class Weather extends React.Component {
     }
 
     getWeather(){
-        let url = API_URL + "?q=" + this.state.inputValue + "&APPID=" + APP_ID + "&cnt=7"
-        ;
+        let url = API_URL + "?q=" + this.state.inputValue + "&APPID=" + APP_ID + "&cnt=7";
 
         fetch(url)
             .then((response) => {
