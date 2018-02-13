@@ -136,7 +136,8 @@ class Weather extends React.Component {
                 )}
                 onClick={() => this.getWeather()}/>
 
-                <main>{(this.state.currentFormat == "Current day" && this.state.isSearched)
+                <main>{
+                    (this.state.currentFormat == "Current day" && this.state.isSearched)
                     ? <CurrentWeather
                         weather = {this.state.day}
                         location = {this.state.location}
