@@ -4,18 +4,18 @@ body{
 }
 .Current {
   margin-left: 18%;
-  .Current-title {
+  .weather-title {
     text-align: center;
     @include text-props($darkBlue, 50px, bolder, 5px);
   }
-  .Current-info {
+  .weather-info {
     margin-top: -15px;
     margin-bottom: 10%;
     text-align: center;
-    .Current-info-location_title {
+    .weather-info-location_title {
       @include text-props($grey, 40px, bold, _);
     }
-    .Current-info-description {
+    .weather-info-description {
       @include text-props($lightGrey, 30px, bold, _);
       text-shadow: 1px 1px 1px black;
       margin-top: -30px;

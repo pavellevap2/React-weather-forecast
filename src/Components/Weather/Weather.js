@@ -6,7 +6,9 @@ import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import ThreeDays from "../../Components/ThreeDays/Threedays"
 
-let weatherFormat = ["Current day", "3 days", "Week"];
+const API_LEFT = "http://api.openweathermap.org/data/2.5/forecast?q=";
+const API_RIGHT = "&APPID=a005082060a510ea98358cf7771f530f&cnt=16";
+let forecastFormat = ["Current day", "3 days", "Week"];
 
 function EmptyPage() {
     return(
@@ -23,99 +25,73 @@ class Weather extends React.Component {
             inputValue : "",
             currentFormat : "",
             isSearched : false,
+
             location : {
                 city : "" ,
                 countryOfCity:"",
             },
 
-            day:{
-                temperature : "",
-                maxTemperature:"",
-                minTemperature:"",
-                pressure : "",
-                humidity : "",
-                windSpeed : "",
-                windDeg : "",
-                weatherIcon : "",
-                description : "",
-                seaLevel : "",
-                clouds : "",
-            },
-
-            threeDays : [
-                {first : {temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
-                        windDeg:"", description:"", }},
-                {second : {temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
-                        windDeg:"", description:"", }},
-                {third : {temperature : "", maxTemperature : " " , minTemperature : "", weatherIcon : "", windSpeed:"",
-                        windDeg:"", description:"", }},
+            days : [
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
+                { temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
+                    windDeg:"", description:"", pressure: "" , humidity: "" , seaLevel: "" , clouds: "", date : ""} ,
             ]
         };
     }
 
     getWeather(){
-        let url = "http://api.openweathermap.org/data/2.5/forecast?q=London&APPID=a005082060a510ea98358cf7771f530f&cnt=7";
+        let url = API_LEFT + this.state.inputValue + API_RIGHT;
 
         fetch(url, {method : "GET"})
             .then((response) => {
                 return response.json();
             })
             .then((data) => {
-                    let day = data.list[0];
-                    let threeDays = data.list.slice(0, 3);
+                let allDays = data.list.slice(0, 7);
+
+                let getDayData = (data) => ({
+                    temperature : data.main.temp,
+                    maxTemperature: data.main.temp_max,
+                    minTemperature : data.main.temp_min,
+                    weatherIcon : "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png",
+                    windSpeed : data.wind.speed,
+                    windDeg : data.wind.deg,
+                    description : data.weather[0].description,
+                    pressure : data.main.pressure,
+                    humidity : data.main.humidity,
+                    seaLevel : data.main.sea_level,
+                    clouds : data.clouds.all,
+                    date : data.dt_txt.substring(0,10),
+                });
 
                 this.setState({
+                    isSearched : true,
                     location : {
                         city: data.city.name,
                         countryOfCity: data.city.country,
                     },
-                    day :{
-                        description: day.weather[0].description,
-                        temperature: day.main.temp,
-                        maxTemperature: day.main.temp_max,
-                        minTemperature: day.main.temp_min,
-                        pressure: day.main.pressure,
-                        seaLevel: day.main.sea_level,
-                        humidity: day.main.humidity,
-                        windSpeed: day.wind.speed,
-                        windDeg: day.wind.deg,
-                        clouds: day.clouds.all,
-                        weatherIcon: "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png",
-                    },
 
-                    threeDays:[
-                        {
-                            first: {
-                                temperature : threeDays[0].main.temp,
-                                maxTemperature: threeDays[0].main.temp_max,
-                                minTemperature : threeDays[0].main.temp_min,
-                                weatherIcon : "http://openweathermap.org/img/w/" + threeDays[0].weather[0].icon + ".png",
-                                windSpeed : threeDays[0].wind.speed,
-                                windDeg : threeDays[0].wind.deg,
-                                description : threeDays[0].weather[0].description,
-                            },
-                            second:{
-                                temperature : threeDays[1].main.temp,
-                                maxTemperature: threeDays[1].main.temp_max,
-                                minTemperature : threeDays[1].main.temp_min,
-                                weatherIcon : "http://openweathermap.org/img/w/" + threeDays[1].weather[0].icon + ".png",
-                                windSpeed : threeDays[1].wind.speed,
-                                windDeg : threeDays[1].wind.deg,
-                                description : threeDays[1].weather[0].description,
-                            },
-                            third:{
-                                temperature : threeDays[2].main.temp,
-                                maxTemperature: threeDays[2].main.temp_max,
-                                minTemperature : threeDays[2].main.temp_min,
-                                weatherIcon : "http://openweathermap.org/img/w/" + threeDays[2].weather[0].icon + ".png",
-                                windSpeed : threeDays[2].wind.speed,
-                                windDeg : threeDays[2].wind.deg,
-                                description : threeDays[2].weather[0].description,
-                            }
-                        }
-                    ],
-                    isSearched : true,
-                    })
+                    days : {
+                        0 : getDayData(allDays[0]),
+                        1 : getDayData(allDays[1]),
+                        2 : getDayData(allDays[2]),
+                        3 : getDayData(allDays[3]),
+                        4 : getDayData(allDays[4]),
+                        5 : getDayData(allDays[5]),
+                        6 : getDayData(allDays[6]),
+                    },
+                });
             })
             .catch( (error) => {
                 console.log("Request failed", error)
@@ -129,17 +105,16 @@ class Weather extends React.Component {
                 onChange={(e) => this.setState({inputValue : e.target.value})}
                 inputValue={this.state.inputValue}
                 currentFormat = {this.state.currentFormat}
-                makeSelect = {weatherFormat.map((c, i) =>
+                makeSelect = {forecastFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
                         {c}
                     </option>
                 )}
                 onClick={() => this.getWeather()}/>
-
                 <main>{
                     (this.state.currentFormat == "Current day" && this.state.isSearched)
                     ? <CurrentWeather
-                        weather = {this.state.day}
+                        weather = {this.state.days[0]}
                         location = {this.state.location}
                         imgWind={wind}
                         imgCloud={cloud}/>

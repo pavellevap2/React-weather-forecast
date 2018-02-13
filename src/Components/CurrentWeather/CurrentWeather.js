@@ -1,7 +1,7 @@
 import React from "react"
 
 let kelvinToCelsius = (temp) => {
-    return  parseInt(temp - 273.15);
+    return  Math.floor(temp - 273.15);
 };
 
 let windDirection = (deg) => {
@@ -17,12 +17,12 @@ let windDirection = (deg) => {
 function CurrentWeather(props) {
     return (
         <div className="Current">
-            <h2 className="Current-title">Current weather</h2>
-            <div className="Current-info">
-                <h2 className="Current-info-location_title">{props.location.city}
+            <h2 className="weather-title">Current weather</h2>
+            <div className="weather-info">
+                <h2 className="weather-info-location_title">{props.location.city}
                     <span className="Current-info-city"> {props.location.countryOfCity}</span>
                 </h2>
-                <p className="Current-info-description">({props.weather.description})</p>
+                <p className="weather-info-description">({props.weather.description})</p>
             </div>
 
             <div className="Current-weather">
@@ -68,3 +68,4 @@ function CurrentWeather(props) {
 
 }
 export default CurrentWeather;
+export {kelvinToCelsius, windDirection};
