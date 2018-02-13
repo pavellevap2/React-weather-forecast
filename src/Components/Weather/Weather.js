@@ -36,6 +36,7 @@ class Weather extends React.Component {
             description : "",
             seaLevel : "",
             clouds : "",
+            isSearched : false
         };
     }
 
@@ -49,23 +50,24 @@ class Weather extends React.Component {
                 return response.json();
             })
             .then((data) => {
-                let day = data.list[0];
+                    let day = data.list[0];
 
-                this.setState({
-                    city : data.city.name,
-                    countryOfCity : data.city.country,
-                    description : day.weather[0].description,
-                    temperature : day.main.temp,
-                    maxTemperature : day.main.temp_max,
-                    minTemperature : day.main.temp_min,
-                    pressure : day.main.pressure,
-                    seaLevel : day.main.sea_level,
-                    humidity : day.main.humidity,
-                    windSpeed : day.wind.speed,
-                    windDeg : day.wind.deg,
-                    clouds: day.clouds.all,
-                    weatherIcon : "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png",
-                })
+                    this.setState({
+                        city: data.city.name,
+                        countryOfCity: data.city.country,
+                        description: day.weather[0].description,
+                        temperature: day.main.temp,
+                        maxTemperature: day.main.temp_max,
+                        minTemperature: day.main.temp_min,
+                        pressure: day.main.pressure,
+                        seaLevel: day.main.sea_level,
+                        humidity: day.main.humidity,
+                        windSpeed: day.wind.speed,
+                        windDeg: day.wind.deg,
+                        clouds: day.clouds.all,
+                        weatherIcon: "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png",
+                        isSearched : true,
+                    })
             })
             .catch( (error) => {
                 console.log("Request failed", error)
@@ -85,7 +87,7 @@ class Weather extends React.Component {
                     </option>
                 )}
                 onClick={() => this.getWeather()}/>
-                <main>{this.state.currentFormat=="Current day" ?
+                <main>{ (this.state.currentFormat == "Current day" && this.state.isSearched) ?
                     <CurrentWeather
                         weather={this.state}
                         imgWind={wind}
