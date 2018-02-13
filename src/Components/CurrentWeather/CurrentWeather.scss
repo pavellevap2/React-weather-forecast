@@ -2,8 +2,8 @@
 body{
   background-color: $mainColor;
 }
-.Current {
-  margin-left: 18%;
+
+.weather-props{
   .weather-title {
     text-align: center;
     @include text-props($darkBlue, 50px, bolder, 5px);
@@ -21,6 +21,10 @@ body{
       margin-top: -30px;
     }
   }
+}
+
+.Current {
+  margin-left: 18%;
   .Current-weather {
     text-align: center;
     position: relative;

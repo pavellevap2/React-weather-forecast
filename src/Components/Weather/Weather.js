@@ -4,11 +4,34 @@ import cloud from "../../assets/images/cloud.png";
 import wind from "../../assets/images/wind.png";
 import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import ThreeDays from "../../Components/ThreeDays/Threedays"
+import ThreeDays from "../ThreeDays/ThreeDays"
 
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID = "a005082060a510ea98358cf7771f530f";
 let forecastFormat = ["Current day", "3 days", "Week"];
+
+let getDayData = (data) => ({
+    temperature : data.main.temp,
+    maxTemperature: data.main.temp_max,
+    minTemperature : data.main.temp_min,
+    weatherIcon : "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png",
+    windSpeed : data.wind.speed,
+    windDeg : data.wind.deg,
+    description : data.weather[0].description,
+    pressure : data.main.pressure,
+    humidity : data.main.humidity,
+    seaLevel : data.main.sea_level,
+    clouds : data.clouds.all,
+    date : data.dt_txt.substring(0,10),
+});
+
+let map = (mapFn, xs) =>{
+    let zs = [];
+    for (let x of xs){
+        zs.push(mapFn(x));
+    }
+    return zs;
+};
 
 function EmptyPage() {
     return(
@@ -25,7 +48,6 @@ class Weather extends React.Component {
             inputValue : "",
             currentFormat : "",
             isSearched : false,
-
             location : {
                 city : "" ,
                 countryOfCity:"",
@@ -60,37 +82,13 @@ class Weather extends React.Component {
             .then((data) => {
                 let allDays = data.list.slice(0, 7);
 
-                let getDayData = (data) => ({
-                    temperature : data.main.temp,
-                    maxTemperature: data.main.temp_max,
-                    minTemperature : data.main.temp_min,
-                    weatherIcon : "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png",
-                    windSpeed : data.wind.speed,
-                    windDeg : data.wind.deg,
-                    description : data.weather[0].description,
-                    pressure : data.main.pressure,
-                    humidity : data.main.humidity,
-                    seaLevel : data.main.sea_level,
-                    clouds : data.clouds.all,
-                    date : data.dt_txt.substring(0,10),
-                });
-
                 this.setState({
                     isSearched : true,
                     location : {
                         city: data.city.name,
                         countryOfCity: data.city.country,
                     },
-
-                    days : {
-                        0 : getDayData(allDays[0]),
-                        1 : getDayData(allDays[1]),
-                        2 : getDayData(allDays[2]),
-                        3 : getDayData(allDays[3]),
-                        4 : getDayData(allDays[4]),
-                        5 : getDayData(allDays[5]),
-                        6 : getDayData(allDays[6]),
-                    },
+                    data : map()
                 });
             })
             .catch( (error) => {
@@ -119,7 +117,12 @@ class Weather extends React.Component {
                         imgWind={wind}
                         imgCloud={cloud}/>
                     : (this.state.currentFormat == "3 days" && this.state.isSearched)
-                        ? <ThreeDays/>
+                        ? <ThreeDays
+                            location = {this.state.location}
+                            firstDay = {this.state.days[0]}
+                            secondDay = {this.state.days[1]}
+                            thirdDay = {this.state.days[2]}
+                          />
                         : <EmptyPage/>
                 }
                 </main>

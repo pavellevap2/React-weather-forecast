@@ -87,30 +87,31 @@
 body {
   background-color: #F7FBFF; }
 
+.weather-props .weather-title {
+  text-align: center;
+  color: #556D7F;
+  font-size: 50px;
+  font-weight: bolder;
+  padding: 5px; }
+.weather-props .weather-info {
+  margin-top: -15px;
+  margin-bottom: 10%;
+  text-align: center; }
+  .weather-props .weather-info .weather-info-location_title {
+    color: #7B7E7F;
+    font-size: 40px;
+    font-weight: bold;
+    padding: _; }
+  .weather-props .weather-info .weather-info-description {
+    color: #C5C9CC;
+    font-size: 30px;
+    font-weight: bold;
+    padding: _;
+    text-shadow: 1px 1px 1px black;
+    margin-top: -30px; }
+
 .Current {
   margin-left: 18%; }
-  .Current .weather-title {
-    text-align: center;
-    color: #556D7F;
-    font-size: 50px;
-    font-weight: bolder;
-    padding: 5px; }
-  .Current .weather-info {
-    margin-top: -15px;
-    margin-bottom: 10%;
-    text-align: center; }
-    .Current .weather-info .weather-info-location_title {
-      color: #7B7E7F;
-      font-size: 40px;
-      font-weight: bold;
-      padding: _; }
-    .Current .weather-info .weather-info-description {
-      color: #C5C9CC;
-      font-size: 30px;
-      font-weight: bold;
-      padding: _;
-      text-shadow: 1px 1px 1px black;
-      margin-top: -30px; }
   .Current .Current-weather {
     text-align: center;
     position: relative;
@@ -193,30 +194,31 @@ body {
 body {
   background-color: #F7FBFF; }
 
+.weather-props .weather-title {
+  text-align: center;
+  color: #556D7F;
+  font-size: 50px;
+  font-weight: bolder;
+  padding: 5px; }
+.weather-props .weather-info {
+  margin-top: -15px;
+  margin-bottom: 10%;
+  text-align: center; }
+  .weather-props .weather-info .weather-info-location_title {
+    color: #7B7E7F;
+    font-size: 40px;
+    font-weight: bold;
+    padding: _; }
+  .weather-props .weather-info .weather-info-description {
+    color: #C5C9CC;
+    font-size: 30px;
+    font-weight: bold;
+    padding: _;
+    text-shadow: 1px 1px 1px black;
+    margin-top: -30px; }
+
 .Current {
   margin-left: 18%; }
-  .Current .weather-title {
-    text-align: center;
-    color: #556D7F;
-    font-size: 50px;
-    font-weight: bolder;
-    padding: 5px; }
-  .Current .weather-info {
-    margin-top: -15px;
-    margin-bottom: 10%;
-    text-align: center; }
-    .Current .weather-info .weather-info-location_title {
-      color: #7B7E7F;
-      font-size: 40px;
-      font-weight: bold;
-      padding: _; }
-    .Current .weather-info .weather-info-description {
-      color: #C5C9CC;
-      font-size: 30px;
-      font-weight: bold;
-      padding: _;
-      text-shadow: 1px 1px 1px black;
-      margin-top: -30px; }
   .Current .Current-weather {
     text-align: center;
     position: relative;

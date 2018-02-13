@@ -17,14 +17,15 @@ let windDirection = (deg) => {
 function CurrentWeather(props) {
     return (
         <div className="Current">
-            <h2 className="weather-title">Current weather</h2>
-            <div className="weather-info">
-                <h2 className="weather-info-location_title">{props.location.city}
-                    <span className="Current-info-city"> {props.location.countryOfCity}</span>
-                </h2>
-                <p className="weather-info-description">({props.weather.description})</p>
+            <div className="weather-props">
+                <h2 className="weather-title">Current weather</h2>
+                <div className="weather-info">
+                    <h2 className="weather-info-location_title">{props.location.city}
+                        <span className="Current-info-city"> {props.location.countryOfCity}</span>
+                    </h2>
+                    <p className="weather-info-description">({props.weather.description})</p>
+                </div>
             </div>
-
             <div className="Current-weather">
                     <ul className="weather-block">
                         <li><p className="temp-title">Temperature</p></li>
