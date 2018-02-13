@@ -136,14 +136,14 @@ class Weather extends React.Component {
                 )}
                 onClick={() => this.getWeather()}/>
 
-                <main>{(this.state.currentFormat == "Current day" && this.state.isSearched) ?
-                    <CurrentWeather
+                <main>{(this.state.currentFormat == "Current day" && this.state.isSearched)
+                    ? <CurrentWeather
                         weather = {this.state.day}
                         location = {this.state.location}
                         imgWind={wind}
                         imgCloud={cloud}/>
-                    : (this.state.currentFormat == "3 days" && this.state.isSearched) ?
-                        <ThreeDays/>
+                    : (this.state.currentFormat == "3 days" && this.state.isSearched)
+                        ? <ThreeDays/>
                         : <EmptyPage/>
                 }
                 </main>
