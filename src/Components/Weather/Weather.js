@@ -43,11 +43,11 @@ class Weather extends React.Component {
             },
 
             threeDays : [
-                {first : {temperature : "" ,maxTemperature : " " ,minTemperature : "", weatherIcon : "",windSpeed:"",
+                {first : {temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
                         windDeg:"", description:"", }},
-                {second :{temperature : "" ,maxTemperature : " " ,minTemperature : "", weatherIcon : "",windSpeed:"",
+                {second : {temperature : "", maxTemperature : " ", minTemperature : "", weatherIcon : "", windSpeed:"",
                         windDeg:"", description:"", }},
-                {third :{temperature : "" ,maxTemperature : " " ,minTemperature : "", weatherIcon : "",windSpeed:"",
+                {third : {temperature : "", maxTemperature : " " , minTemperature : "", weatherIcon : "", windSpeed:"",
                         windDeg:"", description:"", }},
             ]
         };
@@ -82,6 +82,7 @@ class Weather extends React.Component {
                         clouds: day.clouds.all,
                         weatherIcon: "http://openweathermap.org/img/w/" + day.weather[0].icon + ".png",
                     },
+
                     threeDays:[
                         {
                             first: {
@@ -113,7 +114,6 @@ class Weather extends React.Component {
                             }
                         }
                     ],
-
                     isSearched : true,
                     })
             })
