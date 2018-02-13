@@ -6,8 +6,8 @@ import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import ThreeDays from "../../Components/ThreeDays/Threedays"
 
-const API_LEFT = "http://api.openweathermap.org/data/2.5/forecast?q=";
-const API_RIGHT = "&APPID=a005082060a510ea98358cf7771f530f&cnt=16";
+const API_URL_LEFT = "http://api.openweathermap.org/data/2.5/forecast?q=";
+const API_URL_RIGHT = "&APPID=a005082060a510ea98358cf7771f530f&cnt=16";
 let forecastFormat = ["Current day", "3 days", "Week"];
 
 function EmptyPage() {
@@ -51,9 +51,9 @@ class Weather extends React.Component {
     }
 
     getWeather(){
-        let url = API_LEFT + this.state.inputValue + API_RIGHT;
+        let url = API_URL_LEFT + this.state.inputValue + API_URL_RIGHT;
 
-        fetch(url, {method : "GET"})
+        fetch(url)
             .then((response) => {
                 return response.json();
             })
