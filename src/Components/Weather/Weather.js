@@ -5,7 +5,7 @@ import wind from "../../assets/images/wind.png";
 import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import ThreeDaysWeather from "../ThreeDaysWeather/ThreeDaysWeather";
-import WeeakWeather from "../WeekWeather/WeekWeather"
+import WeeakWeather from "../WeekWeather/WeekWeather";
 
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID = "a005082060a510ea98358cf7771f530f";
@@ -32,16 +32,18 @@ function EmptyPage() {
         </div>
     )
 }
-function initAutocomplete() {
+
+let initAutocomplete = () => {
     const autocomplete = new window.google.maps.places.Autocomplete(
         (document.getElementById("autocomplete")),
         {types: ['(cities)']});
-}
+};
+
 class Weather extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            inputValue : "".split (',')[0],
+            inputValue : "",
             currentFormat : "",
             isSearched : false,
             location : {
@@ -74,7 +76,7 @@ class Weather extends React.Component {
         initAutocomplete()
     }
     getWeather(){
-        let url = API_URL + "?q=" + this.state.inputValue + "&APPID=" + APP_ID + "&cnt=7";
+        let url = API_URL + "?q=" + (this.state.inputValue).split (',')[0] + "&APPID=" + APP_ID + "&cnt=7";
 
         fetch(url)
             .then((response) => {
@@ -101,10 +103,9 @@ class Weather extends React.Component {
         return(
             <div className="Weather">
                 <Sidebar
-                onChange={(e) => this.setState({inputValue : e.target.value})}
-                inputValue={this.state.inputValue }
-                currentFormat = {this.state.currentFormat}
-                makeSelect = {forecastFormat.map((c, i) =>
+                    onChange={(e) => this.setState({inputValue : e.target.value})} inputValue={this.state.inputValue }
+                    currentFormat = {this.state.currentFormat}
+                    makeSelect = {forecastFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
                         {c}
                     </option>
