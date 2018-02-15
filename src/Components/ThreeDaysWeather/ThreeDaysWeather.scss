@@ -31,9 +31,9 @@
   }
   .ThreeDays-weather{
     .ThreeDays-block{
-      right:-4%!important;
-        .temp-title{
-          font-size: 22px!important;
+        margin-left: 1%;
+        .three-temp-title{
+          font-size: 20px!important;
         }
         .three-temp-item{
           padding: 3px 0!important;
@@ -46,6 +46,48 @@
             height: 70px!important;
           }
         }
+    }
+  }
+}
+@media (min-width: 1210px) and (max-width: 1521px){
+  .ThreeDays-weather{
+    .ThreeDays-block{
+      margin-left: 7%;
+      .three-temp-title{
+        font-size: 24px!important;
+      }
+      .three-temp-item{
+        padding: 4px 0!important;
+        font-size: 18px!important;
+        .three-temp-item-text{
+          font-size: 16px!important;
+        }
+        .three-temp-item-img{
+          width: 75px!important;
+          height: 75px!important;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1522px) and (max-width: 1670px){
+  .ThreeDays-weather{
+    .ThreeDays-block{
+      margin-left: 12%;
+      .three-temp-title{
+        font-size: 28px!important;
+      }
+      .three-temp-item{
+        padding: 5px 0!important;
+        font-size: 21px!important;
+        .three-temp-item-text{
+          font-size: 19px!important;
+        }
+        .three-temp-item-img{
+          width: 85px!important;
+          height: 85px!important;
+        }
+      }
     }
   }
 }

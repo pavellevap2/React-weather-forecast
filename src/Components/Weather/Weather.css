@@ -510,9 +510,9 @@ body {
     margin-left: 5% !important; }
 
   .ThreeDays-weather .ThreeDays-block {
-    right: -4% !important; }
-    .ThreeDays-weather .ThreeDays-block .temp-title {
-      font-size: 22px !important; }
+    margin-left: 1%; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-title {
+      font-size: 20px !important; }
     .ThreeDays-weather .ThreeDays-block .three-temp-item {
       padding: 3px 0 !important;
       font-size: 16px !important; }
@@ -521,6 +521,32 @@ body {
       .ThreeDays-weather .ThreeDays-block .three-temp-item .three-temp-item-img {
         width: 70px !important;
         height: 70px !important; } }
+@media (min-width: 1210px) and (max-width: 1521px) {
+  .ThreeDays-weather .ThreeDays-block {
+    margin-left: 7%; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-title {
+      font-size: 24px !important; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-item {
+      padding: 4px 0 !important;
+      font-size: 18px !important; }
+      .ThreeDays-weather .ThreeDays-block .three-temp-item .three-temp-item-text {
+        font-size: 16px !important; }
+      .ThreeDays-weather .ThreeDays-block .three-temp-item .three-temp-item-img {
+        width: 75px !important;
+        height: 75px !important; } }
+@media (min-width: 1522px) and (max-width: 1670px) {
+  .ThreeDays-weather .ThreeDays-block {
+    margin-left: 12%; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-title {
+      font-size: 28px !important; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-item {
+      padding: 5px 0 !important;
+      font-size: 21px !important; }
+      .ThreeDays-weather .ThreeDays-block .three-temp-item .three-temp-item-text {
+        font-size: 19px !important; }
+      .ThreeDays-weather .ThreeDays-block .three-temp-item .three-temp-item-img {
+        width: 85px !important;
+        height: 85px !important; } }
 .Sidebar {
   display: flex;
   flex-direction: column;
@@ -774,6 +800,134 @@ body {
     position: relative;
     left: 1.25%; }
 
+@media (min-width: 1000px) and (max-width: 1209px) {
+  .Week-props {
+    margin-left: 0.1% !important; }
+    .Week-props .Week-title {
+      color: #556D7F;
+      font-size: 50px;
+      font-weight: bolder;
+      padding: 5px; }
+    .Week-props .Week-info .Week-info-location_title {
+      color: #7B7E7F;
+      font-size: 40px;
+      font-weight: bold;
+      padding: _; }
+
+  .Week-weather {
+    margin-left: -2%; }
+    .Week-weather .Week-block {
+      white-space: pre-wrap;
+      margin: 0 -15px; }
+      .Week-weather .Week-block .week-temp-title {
+        color: #556D7F;
+        font-size: 9px;
+        font-weight: bold;
+        padding: _; }
+      .Week-weather .Week-block .week-temp-item {
+        padding: 3px -10px;
+        color: #7B7E7F;
+        font-size: 9.3px;
+        font-weight: bold;
+        padding: _; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-img {
+          width: 40px;
+          height: 40px; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-text {
+          color: #556D7F;
+          font-size: 9.3px;
+          font-weight: bold;
+          padding: _; }
+    .Week-weather .Week-border {
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.75%; } }
+@media (min-width: 1210px) and (max-width: 1401px) {
+  .Week-weather {
+    margin-left: -3% !important; }
+    .Week-weather .Week-block {
+      white-space: pre-wrap;
+      margin: 0 -5px; }
+      .Week-weather .Week-block .week-temp-title {
+        color: #556D7F;
+        font-size: 9px;
+        font-weight: bold;
+        padding: _; }
+      .Week-weather .Week-block .week-temp-item {
+        padding: 3px 0;
+        color: #7B7E7F;
+        font-size: 9.3px;
+        font-weight: bold;
+        padding: _; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-img {
+          width: 50px;
+          height: 50px; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-text {
+          color: #556D7F;
+          font-size: 9.3px;
+          font-weight: bold;
+          padding: _; }
+    .Week-weather .Week-border {
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%; } }
+@media (min-width: 1402px) and (max-width: 1670px) {
+  .Week-weather {
+    margin-left: 4% !important; }
+    .Week-weather .Week-block {
+      white-space: pre-wrap;
+      margin: 0 -5px; }
+      .Week-weather .Week-block .week-temp-title {
+        color: #556D7F;
+        font-size: 11px;
+        font-weight: bold;
+        padding: _; }
+      .Week-weather .Week-block .week-temp-item {
+        padding: 3px 0;
+        color: #7B7E7F;
+        font-size: 10.3px;
+        font-weight: bold;
+        padding: _; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-img {
+          width: 50px;
+          height: 50px; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-text {
+          color: #556D7F;
+          font-size: 10px;
+          font-weight: bold;
+          padding: _; }
+    .Week-weather .Week-border {
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%; } }
+@media (min-width: 1671px) and (max-width: 1848px) {
+  .Week-weather {
+    margin-left: 1% !important; }
+    .Week-weather .Week-block {
+      white-space: pre-wrap; }
+      .Week-weather .Week-block .week-temp-title {
+        color: #556D7F;
+        font-size: 12px;
+        font-weight: bold;
+        padding: _; }
+      .Week-weather .Week-block .week-temp-item {
+        padding: 3px 0;
+        color: #7B7E7F;
+        font-size: 12.3px;
+        font-weight: bold;
+        padding: _; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-img {
+          width: 70px;
+          height: 70px; }
+        .Week-weather .Week-block .week-temp-item .week-temp-item-text {
+          color: #556D7F;
+          font-size: 12px;
+          font-weight: bold;
+          padding: _; }
+    .Week-weather .Week-border {
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%; } }
 body {
   margin: 0;
   padding: 0; }
