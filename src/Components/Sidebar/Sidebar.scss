@@ -1,0 +1,90 @@
+$mainColor : #F7FBFF;
+$grey : #7B7E7F;
+$lightBlue : #AADAFF;
+$darkBlue : #556D7F;
+$lightGrey : #C5C9CC;
+$m15 : 15px;
+
+@mixin text-props($color,$font-size,$font-weight,$padding){
+  color : $color;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  padding: $padding;
+}
+@mixin position($position,$top,$left){
+  position: $position;
+  top : $top;
+  left: $left;
+}
+
+.Sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: $lightGrey;
+  height: 100vh;
+  width: 17%;
+  border:1px solid $grey;
+  .Sidebar-title {
+    @include text-props($darkBlue, 43px, bold, 10px 5px );
+    text-align: center;
+    margin-bottom: 4%;
+  }
+  .Sidebar-text{
+    text-align: center;
+    @include text-props($grey,35px,bold,10px 0);
+    text-shadow: 1px 1px 1px $grey;
+    margin-bottom: 0;
+  }
+  .Sidebar-select{
+    @include text-props($darkBlue,24px,bold,2px);
+    border: 2px solid $grey;
+    height: 35px;
+    margin: 10px 0;
+  }
+  .Sidebar-input{
+   @extend .Sidebar-select;
+    text-transform: capitalize;
+    padding-left: 5px;
+  }
+  .Sidebar-search_btn{
+    @include text-props($darkBlue,24px,bold,3px);
+    width: 80%;
+    margin: 20px 0 10% 10% ;
+    border:3px solid $grey;
+    background-color: $mainColor;
+    box-shadow: 2px 2px 2px $grey;
+  }
+}
+@media (min-width: 1000px) and (max-width: 1209px){
+  .Sidebar{
+    .Sidebar-title{
+      font-size: 25px!important;
+    }
+    .Sidebar-text{
+      font-size: 21px!important;
+    }
+    .Sidebar-select{
+      font-size: 21px!important;
+    }
+    .Sidebar-input{
+      font-size: 21px!important;
+    }
+  }
+}
+@media (min-width: 1210px) and (max-width: 1400px){
+  .Sidebar-title{
+    font-size: 32px!important;
+  }
+  .Sidebar-text{
+    font-size: 27px!important;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1670px){
+  .Sidebar-title{
+    font-size: 35px!important;
+  }
+  .Sidebar-text{
+    font-size: 30px!important;
+  }
+}
+

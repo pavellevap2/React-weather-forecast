@@ -1,0 +1,169 @@
+@import "../CurrentWeather/CurrentWeather";
+
+.Week-props{
+  margin-left: 4.8%;
+  text-align: center;
+  margin-bottom: 6.4%;
+  .Week-title{
+    @include text-props($darkBlue, 50px, bolder, 5px);
+  }
+  .Week-info{
+
+    text-align: center;
+    .Week-info-location_title{
+      @include text-props($grey, 40px, bold, _);
+    }
+  }
+}
+.Week-weather{
+  display: flex;
+  text-align: center;
+
+  .Week-block{
+
+    white-space: nowrap;
+    .week-temp-title{
+      @include text-props($darkBlue,24px,bold,_);
+    }
+    .week-temp-item{
+      padding: 6px 0;
+      @include text-props($grey,13.3px,bold,_);
+      .week-temp-item-img{
+        width: 100px;
+        height: 100px;
+      }
+      .week-temp-item-text{
+        @include text-props($darkBlue,14.3px,bold,_);
+      }
+    }
+  }
+  .Week-border{
+    border-right: 1px solid grey;
+    position: relative;
+    left: 1.25%;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1209px){
+  .Week-props{
+    margin-left: 0.1%!important;
+    .Week-title{
+      @include text-props($darkBlue, 50px, bolder, 5px);
+    }
+    .Week-info{
+      .Week-info-location_title{
+        @include text-props($grey, 40px, bold, _);
+      }
+    }
+  }
+
+  .Week-weather{
+    margin-left: -2%;
+    .Week-block{
+      white-space: pre-wrap;
+      margin:0 -15px;
+      .week-temp-title{
+        @include text-props($darkBlue,9px,bold,_);
+      }
+      .week-temp-item{
+        padding: 3px -10px;
+        @include text-props($grey,9.3px,bold,_);
+        .week-temp-item-img{
+          width: 40px;
+          height: 40px;
+        }
+        .week-temp-item-text{
+          @include text-props($darkBlue,9.3px,bold,_);
+        }
+      }
+    }
+    .Week-border{
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.75%;
+    }
+  }
+}
+@media (min-width: 1210px) and (max-width: 1401px){
+  .Week-weather{
+    margin-left: -3%!important;
+    .Week-block{
+      white-space: pre-wrap;
+      margin:0 -5px;
+      .week-temp-title{
+        @include text-props($darkBlue,9px,bold,_);
+      }
+      .week-temp-item{
+        padding: 3px 0;
+        @include text-props($grey,9.3px,bold,_);
+        .week-temp-item-img{
+          width: 50px;
+          height: 50px;
+        }
+        .week-temp-item-text{
+          @include text-props($darkBlue,9.3px,bold,_);
+        }
+      }
+    }
+    .Week-border{
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%;
+    }
+  }
+}
+@media (min-width: 1402px ) and (max-width: 1670px){
+  .Week-weather{
+    margin-left: 4%!important;
+    .Week-block{
+      white-space: pre-wrap;
+      margin:0 -5px;
+      .week-temp-title{
+        @include text-props($darkBlue,11px,bold,_);
+      }
+      .week-temp-item{
+        padding: 3px 0;
+        @include text-props($grey,10.3px,bold,_);
+        .week-temp-item-img{
+          width: 50px;
+          height: 50px;
+        }
+        .week-temp-item-text{
+          @include text-props($darkBlue,10px,bold,_);
+        }
+      }
+    }
+    .Week-border{
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%;
+    }
+  }
+}
+@media (min-width: 1671px ) and (max-width: 1848px){
+  .Week-weather{
+    margin-left: 1%!important;
+    .Week-block{
+      white-space: pre-wrap;
+      .week-temp-title{
+        @include text-props($darkBlue,12px,bold,_);
+      }
+      .week-temp-item{
+        padding: 3px 0;
+        @include text-props($grey,12.3px,bold,_);
+        .week-temp-item-img{
+          width: 70px;
+          height: 70px;
+        }
+        .week-temp-item-text{
+          @include text-props($darkBlue,12px,bold,_);
+        }
+      }
+    }
+    .Week-border{
+      border-right: 1px solid grey;
+      position: relative;
+      left: 1.95%;
+    }
+  }
+}

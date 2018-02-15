@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Weather from './Weather';
+import Weather from './Components/Weather/Weather';
 
 ReactDOM.render(<Weather />, document.getElementById('root'));
 

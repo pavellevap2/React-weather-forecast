@@ -1,0 +1,24 @@
+@import "../Sidebar/Sidebar";
+@import "../CurrentWeather/CurrentWeather";
+@import "../ThreeDaysWeather/ThreeDaysWeather";
+@import "../WeekWeather/WeekWeather";
+
+body{
+  margin: 0;
+  padding: 0;
+    li{
+      list-style: none;
+    }
+    a{
+      text-decoration: none;
+    }
+}
+.Weather{
+  display: flex;
+
+}
+.Empty-title{
+  margin-left: 40%;
+  margin-top: 25%;
+  @include text-props($darkBlue,50px,bold,_)
+}
