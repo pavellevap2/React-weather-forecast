@@ -4,7 +4,8 @@ import cloud from "../../assets/images/cloud.png";
 import wind from "../../assets/images/wind.png";
 import CurrentWeather from "../../Components/CurrentWeather/CurrentWeather";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import ThreeDays from "../ThreeDays/ThreeDays"
+import ThreeDaysWeather from "../ThreeDaysWeather/ThreeDaysWeather";
+import WeeakWeather from "../WeekWeather/WeekWeather"
 
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID = "a005082060a510ea98358cf7771f530f";
@@ -25,16 +26,8 @@ let getDayData = (data) => ({
     date : data.dt_txt.substring(0,10),
 });
 
-let map = (mapFn, xs) =>{
-    let zs = [];
-    for (let x of xs){
-        zs.push(mapFn(x));
-    }
-    return zs;
-};
-
 function EmptyPage() {
-    return(
+    return (
         <div>
             <h2 className="Empty-title">Choose forecast format</h2>
         </div>
@@ -72,6 +65,7 @@ class Weather extends React.Component {
         };
     }
 
+
     getWeather(){
         let url = API_URL + "?q=" + this.state.inputValue + "&APPID=" + APP_ID + "&cnt=7";
 
@@ -88,7 +82,7 @@ class Weather extends React.Component {
                         city: data.city.name,
                         countryOfCity: data.city.country,
                     },
-                    data : map()
+                    days : allDays.map(getDayData),
                 });
             })
             .catch( (error) => {
@@ -110,20 +104,33 @@ class Weather extends React.Component {
                 )}
                 onClick={() => this.getWeather()}/>
                 <main>{
-                    (this.state.currentFormat == "Current day" && this.state.isSearched)
-                    ? <CurrentWeather
-                        weather = {this.state.days[0]}
-                        location = {this.state.location}
-                        imgWind={wind}
-                        imgCloud={cloud}/>
-                    : (this.state.currentFormat == "3 days" && this.state.isSearched)
-                        ? <ThreeDays
-                            location = {this.state.location}
-                            firstDay = {this.state.days[0]}
-                            secondDay = {this.state.days[1]}
-                            thirdDay = {this.state.days[2]}
-                          />
+                    (
+                        (this.state.currentFormat == "Current day" && this.state.isSearched)
+                            ? <CurrentWeather
+                                weather = {this.state.days[0]}
+                                location = {this.state.location}
+                                imgWind={wind}
+                                imgCloud={cloud}/>
+
+                        : (this.state.currentFormat == "3 days" && this.state.isSearched)
+                            ? <ThreeDaysWeather
+                                location = {this.state.location}
+                                firstDay = {this.state.days[0]}
+                                secondDay = {this.state.days[1]}
+                                thirdDay = {this.state.days[2]}/>
+
+                        :(this.state.currentFormat == "Week" && this.state.isSearched)
+                            ? <WeeakWeather
+                                    location = {this.state.location}
+                                    firstDay = {this.state.days[0]}
+                                    secondDay = {this.state.days[1]}
+                                    thirdDay = {this.state.days[2]}
+                                    fourthDay = {this.state.days[3]}
+                                    fifthDay = {this.state.days[4]}
+                                    sixthDay = {this.state.days[5]}
+                                    seventhDay = {this.state.days[6]}/>
                         : <EmptyPage/>
+                    )
                 }
                 </main>
             </div>

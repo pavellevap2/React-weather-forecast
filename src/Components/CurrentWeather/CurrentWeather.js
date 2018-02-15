@@ -26,7 +26,7 @@ function CurrentWeather(props) {
                     <p className="weather-info-description">({props.weather.description})</p>
                 </div>
             </div>
-            <div className="Current-weather">
+            <div className="weather">
                     <ul className="weather-block">
                         <li><p className="temp-title">Temperature</p></li>
                         <li className="temp-item"><img src={props.weather.weatherIcon} className="temp-item-img" alt="weather icon"/></li>

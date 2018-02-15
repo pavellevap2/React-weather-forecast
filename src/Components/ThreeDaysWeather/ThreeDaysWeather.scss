@@ -1,0 +1,51 @@
+@import "../CurrentWeather/CurrentWeather";
+.ThreeDays-weather{
+  display: flex;
+  .ThreeDays-block{
+    margin-left: 12%;
+    white-space: nowrap;
+    text-align: center;
+
+    .three-temp-title{
+      @include text-props($darkBlue,33px,bold,_);
+      margin-bottom: 10px;
+    }
+    .three-temp-item{
+      padding: 6px 0;
+      @include text-props($grey,22px,bold,_);
+      .three-temp-item-img{
+        text-align: center;
+        width: 150px;
+        height: 150px;
+      }
+      .three-temp-item-text{
+        @include text-props($darkBlue,22px,bolder,_);
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1209px){
+  .Three-props{
+    margin-left: 5%!important;
+  }
+  .ThreeDays-weather{
+    .ThreeDays-block{
+      right:-4%!important;
+        .temp-title{
+          font-size: 22px!important;
+        }
+        .three-temp-item{
+          padding: 3px 0!important;
+          font-size: 16px!important;
+          .three-temp-item-text{
+            font-size: 15px!important;
+          }
+          .three-temp-item-img{
+            width: 70px!important;
+            height: 70px!important;
+          }
+        }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React from "react";
-import "./Sidebar.css"
+import "./Sidebar.css";
+
 
 function Sidebar(props) {
     return(
@@ -10,7 +11,7 @@ function Sidebar(props) {
                 <option value="Select format">....</option>
                 {props.makeSelect}
             </select>
-            <input type="text" className="Sidebar-input" placeholder="Enter city"
+            <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
                    onChange={props.onChange}
                    value={props.inputValue}/>
             <button className="Sidebar-search_btn" onClick={props.onClick}>Search</button>

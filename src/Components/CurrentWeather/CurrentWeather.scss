@@ -2,8 +2,8 @@
 body{
   background-color: $mainColor;
 }
-
 .weather-props{
+  margin-left: 30%;
   .weather-title {
     text-align: center;
     @include text-props($darkBlue, 50px, bolder, 5px);
@@ -24,11 +24,10 @@ body{
 }
 
 .Current {
-  margin-left: 18%;
-  .Current-weather {
+  .weather {
     text-align: center;
     position: relative;
-    left: -15%;
+    right: -6%;
     display: flex;
     .weather-block {
       white-space: nowrap;
@@ -58,6 +57,138 @@ body{
       margin-right: 18%;
       white-space: nowrap;
 
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1209px){
+  .weather-props{
+    margin-left: 15%!important;
+    text-align: center!important;
+    .weather-title{
+      font-size: 33px!important;
+    }
+    .weather-info{
+      .weather-info-location_title{
+        font-size: 27px!important;
+      }
+      .weather-info-description{
+        font-size: 24px!important;
+      }
+    }
+  }
+  .Current{
+    .weather{
+      right:-4%!important;
+      .weather-block{
+        .temp-title{
+          font-size: 22px!important;
+        }
+        .temp-item{
+          padding: 3px 0!important;
+          font-size: 16px!important;
+          .temp-item-text{
+            font-size: 15px!important;
+          }
+          .temp-item-img{
+            width: 70px!important;
+            height: 70px!important;
+          }
+          .flag{
+
+          }
+        }
+      }
+      .m-weather{
+        margin-left: 4%!important;
+        margin-right: 4%!important;
+      }
+    }
+  }
+}
+
+@media (min-width: 1210px) and (max-width: 1400px){
+    .weather-props{
+      margin-left: 24%!important;
+      text-align: center!important;
+      .weather-title{
+        font-size: 36px!important;
+      }
+      .weather-info{
+        .weather-info-location_title{
+          font-size: 30px!important;
+        }
+        .weather-info-description{
+          font-size: 26px!important;
+        }
+      }
+    }
+    .Current{
+      .weather{
+        left: 8%!important;
+        .weather-block{
+          .temp-title{
+            font-size: 25px!important;
+          }
+          .temp-item{
+            padding: 3px 0!important;
+            font-size: 18px!important;
+            .temp-item-text{
+              font-size: 16px!important;
+            }
+            .temp-item-img{
+              width: 75px!important;
+              height: 75px!important;
+            }
+          }
+        }
+        .m-weather{
+          margin-left: 7%!important;
+          margin-right: 7%!important;
+        }
+      }
+    }
+}
+
+@media (min-width: 1400px) and (max-width: 1670px){
+  .weather-props{
+    margin-left: 27%!important;
+    text-align: center!important;
+    .weather-title{
+      font-size: 43px!important;
+    }
+    .weather-info{
+      .weather-info-location_title{
+        font-size: 33px!important;
+      }
+      .weather-info-description{
+        font-size: 22px!important;
+      }
+    }
+  }
+  .Current{
+    .weather{
+      left: 10%!important;
+      .weather-block{
+        .temp-title{
+          font-size: 27px!important;
+        }
+        .temp-item{
+          padding: 4px 0!important;
+          font-size: 19px!important;
+          .temp-item-text{
+            font-size: 18px!important;
+          }
+          .temp-item-img{
+            width: 85px!important;
+            height: 85px!important;
+          }
+        }
+      }
+      .m-weather{
+        margin-left: 7%!important;
+        margin-right: 7%!important;
+      }
     }
   }
 }

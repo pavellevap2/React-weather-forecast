@@ -1,17 +1,16 @@
 import React from "react";
 import {kelvinToCelsius, windDirection} from "../../Components/CurrentWeather/CurrentWeather";
-import "./ThreeDays.scss"
+import "./ThreeDaysWeather.scss"
 
-function ThreeDays(props) {
+function ThreeDaysWeather(props) {
     return(
-        <div>
+        <div className="Three-props">
             <div className="weather-props">
                 <h2 className="weather-title">Three days weather Forecast</h2>
                 <div className="weather-info">
                     <h2 className="weather-info-location_title">{props.location.city}
                         <span className="Current-info-city"> {props.location.countryOfCity}</span>
                     </h2>
-                    <p className="weather-info-description">({props.firstDay.description})</p>
                 </div>
             </div>
             <div className="ThreeDays-weather">
@@ -20,7 +19,7 @@ function ThreeDays(props) {
                     <li className="three-temp-item">
                         <img src={props.firstDay.weatherIcon} className="three-temp-item-img" alt="weather icon"/>
                     </li>
-                    <li className="three-temp-item"><span className="three-temp-item-text">Temperature :</span>
+                    <li className="three-temp-item"><span className="three-temp-item-text"> Temperature :</span>
                         {kelvinToCelsius(props.firstDay.temperature)}  °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Max temperature : </span>
@@ -40,7 +39,7 @@ function ThreeDays(props) {
                         {props.firstDay.seaLevel} m</li>
                 </ul>
 
-                <ul className="ThreeDays-block">
+                <ul className="ThreeDays-block three-middle-block">
                     <li><p className="three-temp-title">{props.secondDay.date}</p></li>
                     <li className="three-temp-item">
                         <img src={props.secondDay.weatherIcon} className="three-temp-item-img" alt="weather icon"/>
@@ -96,4 +95,4 @@ function ThreeDays(props) {
         </div>
     )
 }
-export default ThreeDays;
+export default ThreeDaysWeather;

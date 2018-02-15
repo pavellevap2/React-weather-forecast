@@ -1,0 +1,45 @@
+@import "../CurrentWeather/CurrentWeather";
+
+.Week-props{
+  margin-left: 4.8%;
+  text-align: center;
+  margin-bottom: 6.4%;
+  .Week-title{
+    @include text-props($darkBlue, 50px, bolder, 5px);
+  }
+  .Week-info{
+
+    text-align: center;
+    .Week-info-location_title{
+      @include text-props($grey, 40px, bold, _);
+    }
+  }
+}
+.Week-weather{
+  display: flex;
+  text-align: center;
+
+  .Week-block{
+
+    white-space: nowrap;
+    .week-temp-title{
+      @include text-props($darkBlue,24px,bold,_);
+    }
+    .week-temp-item{
+      padding: 6px 0;
+      @include text-props($grey,13.3px,bold,_);
+      .week-temp-item-img{
+        width: 100px;
+        height: 100px;
+      }
+      .week-temp-item-text{
+        @include text-props($darkBlue,14.3px,bold,_);
+      }
+    }
+  }
+  .Week-border{
+    border-right: 1px solid grey;
+    position: relative;
+    left: 1.25%;
+  }
+}

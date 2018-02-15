@@ -44,6 +44,7 @@ $m15 : 15px;
   .Sidebar-input{
    @extend .Sidebar-select;
     text-transform: capitalize;
+    padding-left: 5px;
   }
   .Sidebar-search_btn{
     @include text-props($darkBlue,24px,bold,3px);
@@ -54,3 +55,36 @@ $m15 : 15px;
     box-shadow: 2px 2px 2px $grey;
   }
 }
+@media (min-width: 1000px) and (max-width: 1209px){
+  .Sidebar{
+    .Sidebar-title{
+      font-size: 25px!important;
+    }
+    .Sidebar-text{
+      font-size: 21px!important;
+    }
+    .Sidebar-select{
+      font-size: 21px!important;
+    }
+    .Sidebar-input{
+      font-size: 21px!important;
+    }
+  }
+}
+@media (min-width: 1210px) and (max-width: 1400px){
+  .Sidebar-title{
+    font-size: 32px!important;
+  }
+  .Sidebar-text{
+    font-size: 27px!important;
+  }
+}
+@media (min-width: 1400px) and (max-width: 1670px){
+  .Sidebar-title{
+    font-size: 35px!important;
+  }
+  .Sidebar-text{
+    font-size: 30px!important;
+  }
+}
+
