@@ -510,9 +510,9 @@ body {
     margin-left: 5% !important; }
 
   .ThreeDays-weather .ThreeDays-block {
-    right: -4% !important; }
-    .ThreeDays-weather .ThreeDays-block .temp-title {
-      font-size: 22px !important; }
+    margin-left: 1%; }
+    .ThreeDays-weather .ThreeDays-block .three-temp-title {
+      font-size: 20px !important; }
     .ThreeDays-weather .ThreeDays-block .three-temp-item {
       padding: 3px 0 !important;
       font-size: 16px !important; }

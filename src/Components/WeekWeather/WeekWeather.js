@@ -15,141 +15,141 @@ function WeekWeather(props) {
             </div>
             <div className="Week-weather">
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.firstDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[0].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.firstDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[0].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.firstDay.temperature)}  °
+                        {kelvinToCelsius(props.days[0].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.firstDay.windSpeed} mps</li>
+                        {props.days[0].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.firstDay.windDeg)}</li>
+                        {windDirection(props.days[0].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.firstDay.clouds} %</li>
+                        {props.days[0].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.firstDay.seaLevel} m</li>
+                        {props.days[0].seaLevel} m</li>
                 </ul>
                     <span className='Week-border'></span>
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.secondDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[1].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.secondDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[1].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.secondDay.temperature)}  °
+                        {kelvinToCelsius(props.days[1].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.secondDay.windSpeed} mps</li>
+                        {props.days[1].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.secondDay.windDeg)}</li>
+                        {windDirection(props.days[1].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.secondDay.clouds} %</li>
+                        {props.days[1].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.secondDay.seaLevel} m</li>
+                        {props.days[1].seaLevel} m</li>
                 </ul>
                 <span className='Week-border'></span>
 
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.thirdDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[2].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.thirdDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[2].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.thirdDay.temperature)}  °
+                        {kelvinToCelsius(props.days[2].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.thirdDay.windSpeed} mps</li>
+                        {props.days[2].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.thirdDay.windDeg)}</li>
+                        {windDirection(props.days[2].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.thirdDay.clouds} %</li>
+                        {props.days[2].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.thirdDay.seaLevel} m</li>
+                        {props.days[2].seaLevel} m</li>
                 </ul>
                 <span className='Week-border'></span>
 
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.fourthDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[3].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.fourthDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[3].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.fourthDay.temperature)}  °
+                        {kelvinToCelsius(props.days[3].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.fourthDay.windSpeed} mps</li>
+                        {props.days[3].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.fourthDay.windDeg)}</li>
+                        {windDirection(props.days[3].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.fourthDay.clouds} %</li>
+                        {props.days[3].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.fourthDay.seaLevel} m</li>
+                        {props.days[3].seaLevel} m</li>
                 </ul>
                 <span className='Week-border'></span>
 
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.fifthDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[4].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.fifthDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[4].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.fifthDay.temperature)}  °
+                        {kelvinToCelsius(props.days[4].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.fifthDay.windSpeed} mps</li>
+                        {props.days[4].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.fifthDay.windDeg)}</li>
+                        {windDirection(props.days[4].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.fifthDay.clouds} %</li>
+                        {props.days[4].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.fifthDay.seaLevel} m</li>
+                        {props.days[4].seaLevel} m</li>
                 </ul>
                 <span className='Week-border'></span>
 
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.sixthDay.date}</p></li>
-                        <li className="week-temp-item">
-                        <img src={props.sixthDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                    <li><p className="week-temp-title">{props.days[5].date}</p></li>
+                    <li className="week-temp-item">
+                        <img src={props.days[5].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.sixthDay.temperature)}  °
+                        {kelvinToCelsius(props.days[5].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.sixthDay.windSpeed} mps</li>
+                        {props.days[5].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.sixthDay.windDeg)}</li>
+                        {windDirection(props.days[5].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.sixthDay.clouds} %</li>
+                        {props.days[5].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.sixthDay.seaLevel} </li>
+                        {props.days[5].seaLevel} m</li>
                 </ul>
                 <span className='Week-border'></span>
 
                 <ul className="Week-block">
-                    <li><p className="week-temp-title">{props.seventhDay.date}</p></li>
+                    <li><p className="week-temp-title">{props.days[6].date}</p></li>
                     <li className="week-temp-item">
-                        <img src={props.seventhDay.weatherIcon} className="week-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[6].weatherIcon} className="week-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.seventhDay.temperature)}  °
+                        {kelvinToCelsius(props.days[6].temperature)}  °
                     </li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind speed : </span>
-                        {props.seventhDay.windSpeed} mps</li>
+                        {props.days[6].windSpeed} mps</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Wind direction : </span>
-                        {windDirection(props.seventhDay.windDeg)}</li>
+                        {windDirection(props.days[6].windDeg)}</li>
 
                     <li className="week-temp-item"><span className="week-temp-item-text">Clouds : </span>
-                        {props.seventhDay.clouds} %</li>
+                        {props.days[6].clouds} %</li>
                     <li className="week-temp-item"><span className="week-temp-item-text">Sea level : </span>
-                        {props.seventhDay.seaLevel} m</li>
+                        {props.days[6].seaLevel} m</li>
                 </ul>
 
             </div>

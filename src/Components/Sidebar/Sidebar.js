@@ -1,6 +1,13 @@
 import React from "react";
 import "./Sidebar.css";
 
+// function initAutocomplete() {
+//     const autocomplete = new window.google.maps.places.Autocomplete(
+//         (document.getElementById("autocomplete")),
+//         {types: ['(cities)']});
+//         autocomplete.addListener("place_changed", function() { let place = autocomplete.getPlace();
+//         console.log("place:", place) })
+// }
 
 function Sidebar(props) {
     return(

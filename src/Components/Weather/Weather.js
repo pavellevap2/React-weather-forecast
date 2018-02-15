@@ -10,7 +10,6 @@ import WeeakWeather from "../WeekWeather/WeekWeather"
 const API_URL = "http://api.openweathermap.org/data/2.5/forecast";
 const APP_ID = "a005082060a510ea98358cf7771f530f";
 let forecastFormat = ["Current day", "3 days", "Week"];
-
 let getDayData = (data) => ({
     temperature : data.main.temp,
     maxTemperature: data.main.temp_max,
@@ -33,12 +32,16 @@ function EmptyPage() {
         </div>
     )
 }
-
+function initAutocomplete() {
+    const autocomplete = new window.google.maps.places.Autocomplete(
+        (document.getElementById("autocomplete")),
+        {types: ['(cities)']});
+}
 class Weather extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            inputValue : "",
+            inputValue : "".split (',')[0],
             currentFormat : "",
             isSearched : false,
             location : {
@@ -66,6 +69,10 @@ class Weather extends React.Component {
     }
 
 
+
+    componentDidMount(){
+        initAutocomplete()
+    }
     getWeather(){
         let url = API_URL + "?q=" + this.state.inputValue + "&APPID=" + APP_ID + "&cnt=7";
 
@@ -90,32 +97,12 @@ class Weather extends React.Component {
             });
     };
 
-   initAutocomplete() {
-        const autocomplete = new window.google.maps.places.Autocomplete(
-            (document.getElementById("autocomplete")),
-            {types: ['(cities)']});
-    }
-    componentDidMount(){
-       this.initAutocomplete()
-    }
-    geolocate() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var geolocation = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-            });
-        }
-    }
-
     render() {
         return(
             <div className="Weather">
                 <Sidebar
                 onChange={(e) => this.setState({inputValue : e.target.value})}
                 inputValue={this.state.inputValue}
-                onFocus={ () => this.geolocate()}
                 currentFormat = {this.state.currentFormat}
                 makeSelect = {forecastFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
@@ -135,20 +122,12 @@ class Weather extends React.Component {
                         : (this.state.currentFormat == "3 days" && this.state.isSearched)
                             ? <ThreeDaysWeather
                                 location = {this.state.location}
-                                firstDay = {this.state.days[0]}
-                                secondDay = {this.state.days[1]}
-                                thirdDay = {this.state.days[2]}/>
+                                days = {this.state.days.slice(0, 3)}/>
 
                         :(this.state.currentFormat == "Week" && this.state.isSearched)
                             ? <WeeakWeather
                                     location = {this.state.location}
-                                    firstDay = {this.state.days[0]}
-                                    secondDay = {this.state.days[1]}
-                                    thirdDay = {this.state.days[2]}
-                                    fourthDay = {this.state.days[3]}
-                                    fifthDay = {this.state.days[4]}
-                                    sixthDay = {this.state.days[5]}
-                                    seventhDay = {this.state.days[6]}/>
+                                    days = {this.state.days.slice(0, 7)}/>
                         : <EmptyPage/>
                     )
                 }

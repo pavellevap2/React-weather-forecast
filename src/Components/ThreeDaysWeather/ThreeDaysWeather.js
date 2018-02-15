@@ -9,84 +9,84 @@ function ThreeDaysWeather(props) {
                 <h2 className="weather-title">Three days weather Forecast</h2>
                 <div className="weather-info">
                     <h2 className="weather-info-location_title">{props.location.city}
-                        <span className="Current-info-city"> {props.location.countryOfCity}</span>
-                    </h2>
+                    <span> {props.location.countryOfCity}</span></h2>
+
                 </div>
             </div>
             <div className="ThreeDays-weather">
                 <ul className="ThreeDays-block">
-                    <li><p className="three-temp-title">{props.firstDay.date}</p></li>
+                    <li><p className="three-temp-title">{props.days[0].date}</p></li>
                     <li className="three-temp-item">
-                        <img src={props.firstDay.weatherIcon} className="three-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[0].weatherIcon} className="three-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text"> Temperature :</span>
-                        {kelvinToCelsius(props.firstDay.temperature)}  °
+                        {kelvinToCelsius(props.days[0].temperature)}  °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Max temperature : </span>
-                        {kelvinToCelsius(props.firstDay.maxTemperature)} °
+                        {kelvinToCelsius(props.days[0].maxTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Min temperature : </span>
-                        {kelvinToCelsius(props.firstDay.minTemperature)} °
+                        {kelvinToCelsius(props.days[0].minTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind speed : </span>
-                        {props.firstDay.windSpeed} mps</li>
+                        {props.days[0].windSpeed} mps</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind direction : </span>
-                        {windDirection(props.firstDay.windDeg)}</li>
+                        {windDirection(props.days[0].windDeg)}</li>
 
                     <li className="three-temp-item"><span className="three-temp-item-text">Clouds : </span>
-                        {props.firstDay.clouds} %</li>
+                        {props.days[0].clouds} %</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Sea level : </span>
-                        {props.firstDay.seaLevel} m</li>
+                        {props.days[0].seaLevel} m</li>
                 </ul>
 
                 <ul className="ThreeDays-block three-middle-block">
-                    <li><p className="three-temp-title">{props.secondDay.date}</p></li>
+                    <li><p className="three-temp-title">{props.days[1].date}</p></li>
                     <li className="three-temp-item">
-                        <img src={props.secondDay.weatherIcon} className="three-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[1].weatherIcon} className="three-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Temperature :</span>
-                        {kelvinToCelsius(props.secondDay.temperature)}  °
+                        {kelvinToCelsius(props.days[1].temperature)}  °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Max temperature : </span>
-                        {kelvinToCelsius(props.secondDay.maxTemperature)} °
+                        {kelvinToCelsius(props.days[1].maxTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Min temperature : </span>
-                        {kelvinToCelsius(props.secondDay.minTemperature)} °
+                        {kelvinToCelsius(props.days[1].minTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind speed : </span>
-                        {props.secondDay.windSpeed} mps</li>
+                        {props.days[1].windSpeed} mps</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind direction : </span>
-                        {windDirection(props.secondDay.windDeg)}</li>
+                        {windDirection(props.days[1].windDeg)}</li>
 
                     <li className="three-temp-item"><span className="three-temp-item-text">Clouds : </span>
-                        {props.secondDay.clouds} %</li>
+                        {props.days[1].clouds} %</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Sea level : </span>
-                        {props.secondDay.seaLevel} m</li>
+                        {props.days[1].seaLevel} m</li>
                 </ul>
 
                 <ul className="ThreeDays-block">
-                    <li><p className="three-temp-title">{props.thirdDay.date}</p></li>
+                    <li><p className="three-temp-title">{props.days[1].date}</p></li>
                     <li className="three-temp-item">
-                        <img src={props.thirdDay.weatherIcon} className="three-temp-item-img" alt="weather icon"/>
+                        <img src={props.days[1].weatherIcon} className="three-temp-item-img" alt="weather icon"/>
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Temperature :</span>
-                        {kelvinToCelsius(props.thirdDay.temperature)}  °
+                        {kelvinToCelsius(props.days[1].temperature)}  °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Max temperature : </span>
-                        {kelvinToCelsius(props.thirdDay.maxTemperature)} °
+                        {kelvinToCelsius(props.days[1].maxTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Min temperature : </span>
-                        {kelvinToCelsius(props.thirdDay.minTemperature)} °
+                        {kelvinToCelsius(props.days[1].minTemperature)} °
                     </li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind speed : </span>
-                        {props.thirdDay.windSpeed} mps</li>
+                        {props.days[1].windSpeed} mps</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Wind direction : </span>
-                        {windDirection(props.thirdDay.windDeg)}</li>
+                        {windDirection(props.days[1].windDeg)}</li>
 
                     <li className="three-temp-item"><span className="three-temp-item-text">Clouds : </span>
-                        {props.thirdDay.clouds} %</li>
+                        {props.days[1].clouds} %</li>
                     <li className="three-temp-item"><span className="three-temp-item-text">Sea level : </span>
-                        {props.thirdDay.seaLevel} m</li>
+                        {props.days[1].seaLevel} m</li>
                 </ul>
 
 
