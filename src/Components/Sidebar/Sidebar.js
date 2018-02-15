@@ -13,6 +13,7 @@ function Sidebar(props) {
             </select>
             <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
                    onChange={props.onChange}
+                   onFocus={props.onFocus}
                    value={props.inputValue}/>
             <button className="Sidebar-search_btn" onClick={props.onClick}>Search</button>
         </div>

@@ -90,12 +90,32 @@ class Weather extends React.Component {
             });
     };
 
+   initAutocomplete() {
+        const autocomplete = new window.google.maps.places.Autocomplete(
+            (document.getElementById("autocomplete")),
+            {types: ['(cities)']});
+    }
+    componentDidMount(){
+       this.initAutocomplete()
+    }
+    geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+            });
+        }
+    }
+
     render() {
         return(
             <div className="Weather">
                 <Sidebar
                 onChange={(e) => this.setState({inputValue : e.target.value})}
                 inputValue={this.state.inputValue}
+                onFocus={ () => this.geolocate()}
                 currentFormat = {this.state.currentFormat}
                 makeSelect = {forecastFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
