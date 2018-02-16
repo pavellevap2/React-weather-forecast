@@ -4,19 +4,15 @@ import "./Sidebar.css";
 class Input extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-            place : ""
         }
-
-    }
 
     componentDidMount(){
         const autocomplete = new window.google.maps.places.Autocomplete(
-            (this.textInput),
+            this.textInput,
             {types: ["(cities)"]});
         autocomplete.addListener("place_changed", function() {
             let place = autocomplete.getPlace() ;
-            () => this.setState({place :place.address_components[0].long_name })
+            this.props.onChange(place.address_components[0].long_name)
         });
     }
     shouldComponentUpdate() {
