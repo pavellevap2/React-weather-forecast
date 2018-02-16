@@ -36,7 +36,6 @@ function EmptyPage() {
 class Weather extends React.Component {
     constructor(props){
         super(props);
-
         this.state = {
             inputValue : "",
             currentFormat : "",
@@ -64,6 +63,9 @@ class Weather extends React.Component {
             ]
         };
     }
+
+
+
 
     getWeather(){
         let url = API_URL + "?q=" + (this.state.inputValue).split (',')[0] + "&APPID=" + APP_ID + "&cnt=7";
@@ -93,7 +95,8 @@ class Weather extends React.Component {
         return(
             <div className="Weather">
                 <Sidebar
-                    onSelect={(e) => this.setState({inputValue : e.target.value})} inputValue={this.state.inputValue }
+                    onChange={(e) => this.setState({inputValue : e.target.value})}
+                    inputValue={this.state.inputValue }
                     currentFormat = {this.state.currentFormat}
                     makeSelect = {forecastFormat.map((c, i) =>
                     <option key={i} onClick={() => this.setState({currentFormat : c})}>
