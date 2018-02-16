@@ -16,7 +16,6 @@ class Input extends React.Component {
             {types: ["(cities)"]});
         autocomplete.addListener("place_changed", function() {
             let place = autocomplete.getPlace() ;
-            console.log("place:", place.address_components[0].long_name);
             () => this.setState({place :place.address_components[0].long_name })
         });
     }
