@@ -1,30 +1,41 @@
 import React from "react";
 import "./Sidebar.css";
-
-let initAutocomplete = () => {
-    const autocomplete = new window.google.maps.places.Autocomplete(
-        (document.getElementById("autocomplete")),
-        {types: ["(cities)"]});
-};
+import PlacesAutocomplete, { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 class Input extends React.Component {
     constructor(props){
         super(props);
+        this.state = {
+            adress : "",
+        };
+        this.onChange = (address) => this.setState({ address });
     }
 
     componentDidMount(){
-        initAutocomplete()
+        const autocomplete = new window.google.maps.places.Autocomplete(
+            (this.textInput),
+            {types: ["(cities)"]});
     }
     shouldComponentUpdate() {
         return false;
     }
 
     render(){
+        const inputProps = {
+            value: this.state.address,
+            onChange: this.onChange,
+        }
         return (
-            <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
-                   onChange={this.props.onChange}
-                   onFocus={this.props.onFocus}
-                   value={this.props.inputValue}/>
+            {/*<input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"*/},
+                   {/*onChange={this.props.onChange}*/},
+                   {/*value={this.props.inputValue }*/},
+                   {/*ref={(input) => {this.textInput = input}}*/},
+            {/*/>*/},
+
+            <PlacesAutocomplete
+                ref={(input) => {this.textInput = input}}
+                inputProps={inputProps}
+            />
         )
     }
 }
@@ -36,7 +47,6 @@ function Sidebar(props) {
             <p className="Sidebar-text">Select format</p>
             <Input
                 onChange={props.onChange}
-                onFocus={props.onFocus}
                 value={props.inputValue}/>
             <select className="Sidebar-select" value={props.currentFormat}>
                 <option value="Select format">....</option>
