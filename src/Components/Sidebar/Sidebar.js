@@ -27,9 +27,7 @@ class Input extends React.Component {
             ref : (input) => {this.textInput = input}
         };
         return (
-            <PlacesAutocomplete onSelect={this.props.onSelect}
-                inputProps={inputProps}
-            />
+            <PlacesAutocomplete inputProps={inputProps}/>
         )
     }
 }
