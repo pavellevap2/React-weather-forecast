@@ -1,13 +1,32 @@
 import React from "react";
 import "./Sidebar.css";
 
-function Input(props) {
-    return (
-        <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
-               onChange={props.onChange}
-               onFocus={props.onFocus}
-               value={props.inputValue}/>
-    )
+let initAutocomplete = () => {
+    const autocomplete = new window.google.maps.places.Autocomplete(
+        (document.getElementById("autocomplete")),
+        {types: ["(cities)"]});
+};
+
+class Input extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    componentDidMount(){
+        initAutocomplete()
+    }
+    shouldComponentUpdate() {
+        return false;
+    }
+
+    render(){
+        return (
+            <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
+                   onChange={this.props.onChange}
+                   onFocus={this.props.onFocus}
+                   value={this.props.inputValue}/>
+        )
+    }
 }
 
 function Sidebar(props) {

@@ -33,15 +33,10 @@ function EmptyPage() {
     )
 }
 
-let initAutocomplete = () => {
-    const autocomplete = new window.google.maps.places.Autocomplete(
-        (document.getElementById("autocomplete")),
-        {types: ['(cities)']});
-};
-
 class Weather extends React.Component {
     constructor(props){
         super(props);
+
         this.state = {
             inputValue : "",
             currentFormat : "",
@@ -70,11 +65,6 @@ class Weather extends React.Component {
         };
     }
 
-
-
-    componentDidMount(){
-        initAutocomplete()
-    }
     getWeather(){
         let url = API_URL + "?q=" + (this.state.inputValue).split (',')[0] + "&APPID=" + APP_ID + "&cnt=7";
 
