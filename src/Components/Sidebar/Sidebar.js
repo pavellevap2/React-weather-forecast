@@ -22,18 +22,12 @@ class Input extends React.Component {
 
     render(){
         const inputProps = {
-            value: this.state.address,
+            value: this.state.address ,
             onChange: this.onChange,
-        }
+            ref : (input) => {this.textInput = input}
+        };
         return (
-            {/*<input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"*/},
-                   {/*onChange={this.props.onChange}*/},
-                   {/*value={this.props.inputValue }*/},
-                   {/*ref={(input) => {this.textInput = input}}*/},
-            {/*/>*/},
-
-            <PlacesAutocomplete
-                ref={(input) => {this.textInput = input}}
+            <PlacesAutocomplete onSelect={this.props.onSelect}
                 inputProps={inputProps}
             />
         )
@@ -45,9 +39,7 @@ function Sidebar(props) {
         <div className="Sidebar">
             <a className="Sidebar-title">MyForecast</a>
             <p className="Sidebar-text">Select format</p>
-            <Input
-                onChange={props.onChange}
-                value={props.inputValue}/>
+            <Input className={"test"}/>
             <select className="Sidebar-select" value={props.currentFormat}>
                 <option value="Select format">....</option>
                 {props.makeSelect}
