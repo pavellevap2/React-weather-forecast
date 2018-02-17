@@ -10,7 +10,7 @@ class Input extends React.Component {
         const autocomplete = new window.google.maps.places.Autocomplete(
             this.textInput,
             {types: ["(cities)"]});
-        autocomplete.addListener("place_changed", function() {
+        autocomplete.addListener("place_changed", ()=> {
             let place = autocomplete.getPlace() ;
             this.props.onChange(place.address_components[0].long_name)
         });
@@ -22,9 +22,9 @@ class Input extends React.Component {
     render(){
         return (
             <input type="text" className="Sidebar-input" placeholder="Enter city" id="autocomplete"
-                onChange={this.props.onChange}
-                value={this.props.inputValue }
-                ref={(input) => {this.textInput = input}}/>
+                   onChange={(e) => this.props.onChange(e.target.value)}
+                   value={this.props.inputValue }
+                   ref={(input) => {this.textInput = input}}/>
         )
     }
 }
@@ -36,8 +36,7 @@ function Sidebar(props) {
             <p className="Sidebar-text">Select format</p>
             <Input
             value ={props.inputValue}
-            onChange = {props.onChange}
-            />
+            onChange={(e) => props.onChange(e.target.value)}        />
             <select className="Sidebar-select" value={props.currentFormat}>
                 <option value="Select format">....</option>
                 {props.makeSelect}

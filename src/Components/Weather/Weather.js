@@ -95,7 +95,7 @@ class Weather extends React.Component {
         return(
             <div className="Weather">
                 <Sidebar
-                    onChange={(e) => this.setState({inputValue : e.target.value})}
+                    onChange={(value) => this.setState({inputValue: value})}
                     inputValue={this.state.inputValue }
                     currentFormat = {this.state.currentFormat}
                     makeSelect = {forecastFormat.map((c, i) =>
