@@ -1,6 +1,6 @@
 #This project is a simple weather forecast
 ![image](src/assets/images/first_screen.jpeg)  
-[image](src/assets/images/second_screen.jpeg)  
+![image](src/assets/images/second_screen.jpeg)  
 
 
 
