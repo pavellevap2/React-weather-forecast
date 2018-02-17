@@ -36,7 +36,7 @@ function Sidebar(props) {
             <p className="Sidebar-text">Select format</p>
             <Input
             value ={props.inputValue}
-            onChange={(e) => props.onChange(e.target.value)}        />
+            onChange={props.onChange}      />
             <select className="Sidebar-select" value={props.currentFormat}>
                 <option value="Select format">....</option>
                 {props.makeSelect}
