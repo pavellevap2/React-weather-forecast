@@ -1,11 +1,7 @@
 import React from "react";
 import "./Sidebar.css";
 
-class Input extends React.Component {
-    constructor(props){
-        super(props);
-        }
-
+class InputGooglePlaces extends React.Component {
     componentDidMount(){
         const autocomplete = new window.google.maps.places.Autocomplete(
             this.textInput,
@@ -34,7 +30,7 @@ function Sidebar(props) {
         <div className="Sidebar">
             <a className="Sidebar-title">MyForecast</a>
             <p className="Sidebar-text">Select format</p>
-            <Input
+            <InputGooglePlaces
             value ={props.inputValue}
             onChange={props.onChange}      />
             <select className="Sidebar-select" value={props.currentFormat}>
